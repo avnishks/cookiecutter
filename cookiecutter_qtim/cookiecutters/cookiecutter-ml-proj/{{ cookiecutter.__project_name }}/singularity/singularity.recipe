@@ -1,0 +1,31 @@
+Bootstrap: docker
+From: {{ cookiecutter.__docker_base_image }}
+
+%help
+    Container for development of the {{ cookiecutter.__project_name }} project.
+
+%labels
+    Creator {{ cookiecutter.author }}
+
+%files
+    # Note this should be exported from poetry with poetry export -o
+    requirements.txt /
+
+%post
+    # Install from pre-requisites and other useful tools
+    apt update && apt install -y \
+           python3 \
+           python3-pip \
+           python3-venv \
+           python-is-python3 \
+           git \
+           vim \
+           tmux
+    apt clean
+
+    # Install python reqs¬
+    pip install --upgrade pip setuptools wheel
+    pip install --no-cache-dir -r /requirements.txt
+
+    # This allows a user to install the python package
+    mkdir -p -m 777 /.local/bin /.local/lib /.cache

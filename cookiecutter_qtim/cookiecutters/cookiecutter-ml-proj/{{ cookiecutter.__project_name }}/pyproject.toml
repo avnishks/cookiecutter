@@ -1,0 +1,36 @@
+# This file controls how pip installs the package and its dependencies
+# To understand how to use it, see
+# https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html
+[tool.poetry]
+name = "{{ cookiecutter.__project_name }}"
+version = "0.1.0"
+# Add all run time dependencies here according to the format described here
+# https://setuptools.pypa.io/en/latest/userguide/dependency_management.html#declaring-required-dependency
+description = "{{ cookiecutter.short_description }}"
+authors = [ "{{ cookiecutter.author }} <{{ cookiecutter.author_email }}>" ]
+readme = "README.md"
+homepage = "{{ cookiecutter.__repository_url }}"
+repository = "{{ cookiecutter.__repository_url }}"
+documentation = "{{ cookiecutter.__repository_url }}/docs"
+include = ["resources/*"]
+
+[tool.poetry.dependencies]
+python = "~{{ cookiecutter.__python_version }}"
+{%- for package, version in cookiecutter.__package_versions|dictsort %}
+{{ package }} = "^{{ version }}"
+{%- endfor %}
+
+[tool.poetry.group.dev.dependencies]
+# dev dependencies are those used when developing the package but are not needed
+# to run. This mostly includes linters and other quality control tools.
+# To install these packages, run "pip install -e ".[dev]""
+{%- for package, version in cookiecutter.__package_versions_dev|dictsort %}
+{{ package }} = "^{{ version }}"
+{%- endfor %}
+
+[tool.poetry.scripts]
+{{ cookiecutter.__project_name }} = "{{ cookiecutter.__project_slug }}.cli:run_cli"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

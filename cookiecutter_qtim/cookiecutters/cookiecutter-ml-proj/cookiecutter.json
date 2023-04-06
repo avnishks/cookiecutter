@@ -1,0 +1,22 @@
+{
+  "__project_name": "{{ cookiecutter.__project_name }}",
+  "__project_slug": "{{ cookiecutter.__project_slug }}",
+  "__repository_url": "{{ cookiecutter.__repository_url }}",
+  "short_description": null,
+  "author": null,
+  "author_email": null,
+  "__github_project_path": "{{ cookiecutter.__github_project_path }}",
+  "__project_path": "{{ cookiecutter.__project_path }}",
+  "__data_path": "{{ cookiecutter.__data_path }}",
+  "__container_path": "{{ cookiecutter.__container_path }}",
+  "__mac_project_path": "{{ cookiecutter.__mac_project_path }}",
+  "__mac_data_path": "{{ cookiecutter.__mac_data_path }}",
+  "enable_type_checking": ["n", "y"],
+  "__docker_base_image": "{{ __cookiecutter.__docker_base_image }}",
+  "__container_tag": "{{ __cookiecutter.__container_tag }}",
+  "__python_version": "{{ __cookiecutter.__python_version }}",
+  "__package_versions": "{{ cookiecutter.__package_versions }}",
+  "__package_versions_dev": "{{ cookiecutter.__package_versions_dev }}",
+  "__pip_version": "{{ cookiecutter.__pip_version }}",
+  "__setuptools_version": "{{ cookiecutter.__setuptools_version }}"
+}

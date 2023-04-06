@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = 'cookiecutter-qtim'
+description = "A tool for automatically generating DSO Python project templates based on user input."
+version = "0.0.1"
+authors = [
+    { name = "QTIM Laboratory" },
+    { name = "Christopher Bridge", email = "cbridge@mgh.harvard.edu" }
+]
+maintainers = [
+    { name = "QTIM Laboratory" },
+    { name = "Christopher Bridge", email = "cbridge@mgh.harvard.edu" }
+]
+readme = "README.md"
+requires-python = ">=3.6"
+dependencies = [
+    "requests>=2.0.0",
+    "cookiecutter>=2.1.1",
+    "GitPython>=3.1.0",
+    "pre_commit>=2.20.0",
+]
+
+[project.urls]
+repository = "https://github.com/QTIM-Lab/cookiecutter-qtim"
+homepage = "https://github.com/QTIM-Lab/cookiecutter-qtim"
+
+[project.scripts]
+cookiecutter-qtim = "cookiecutter_qtim.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+exclude = ["cookiecutters/"]
+
+[tool.setuptools.package-data]
+"*" = ["py.typed", "cookiecutters/"]
